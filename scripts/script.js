@@ -1,4 +1,5 @@
 function load() {
+	document.getElementById("prompt").value = '';
 
 	display();
 
@@ -6,7 +7,7 @@ function load() {
 	let prompt = document.getElementById("prompt");
 
 	if(document.activeElement === prompt) {
-		checkEntry();
+		checkPrompt();
 	}
 }
 
@@ -14,7 +15,7 @@ function display() {
 	var divHistory = document.getElementById("history");
 }
 
-function checkEntry() {
+function checkPrompt() {
 	document.getElementById("prompt").addEventListener('keydown', function(event) {
 		if(event.keyCode == 13) {
 			event.preventDefault();
@@ -29,21 +30,15 @@ function checkEntry() {
 
 // adds a prompt entry formatted as : >> Query
 function addPromptEntry(message) {
+	if(!message) return;
 	let history = document.getElementById("history");
 
 	const messageDiv = document.createElement('div');
-	messageDiv.setAttribute('class', message);
+	messageDiv.setAttribute('class', 'message');
 
 	messageDiv.innerHTML += "<span class='prompt-start'> >> </span>";
 	messageDiv.innerHTML += message;
 
 	history.appendChild(messageDiv);
-}
-
-function addStart(parent) {
-	const promptStart = document.createElement('span');
-	promptStart.setAttribute('class', 'promptStart');
-	promptStart.innerHTML = ">>";
-
-	parent.appendChild(promptStart);
+	history.scrollTop = history.scrollHeight;
 }
