@@ -1,6 +1,6 @@
 # exe.html
 
-exe.html is my special project
-it is a fake console application
+<code>exe.html</code> is my special project. It is a fake console application.
 
 bouhou
+
