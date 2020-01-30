@@ -31,14 +31,27 @@ function checkPrompt() {
 // adds a prompt entry formatted as : >> Query
 function addPromptEntry(message) {
 	if(!message) return;
+
 	let history = document.getElementById("history");
 
+	// create message from user
 	const messageDiv = document.createElement('div');
-	messageDiv.setAttribute('class', 'message');
-
-	messageDiv.innerHTML += "<span class='prompt-start'> >> </span>";
+	messageDiv.setAttribute('class', 'query');
 	messageDiv.innerHTML += message;
 
 	history.appendChild(messageDiv);
 	history.scrollTop = history.scrollHeight;
+
+	let tarot = "tarot";
+
+	if( message.search(tarot) != -1 ) {
+		const responseDiv = document.createElement( 'div' );
+		responseDiv.setAttribute( 'class', 'response' );
+		responseDiv.innerHTML = 'Tu veux jouer au tarot ?';
+
+		setTimeout(() => {
+			history.appendChild( responseDiv );
+			history.scrollTop = history.scrollHeight;
+		}, 1000);
+	}
 }

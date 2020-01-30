@@ -1,10 +1,14 @@
 :root {
-	--main-color: white;
+	--main-color: turquoise;
+	--bg-color: black;
+	--query-color: #blue;
+	--response-color: magenta;
+	--console-bg: #171717;
 }
 
 @font-face {
 	font-family: Input;
-	src: url("../fonts/Input/InputMono-Regular.ttf");
+	src: url("../fonts/JetBrains Mono/JetBrainsMono-Regular.ttf");
   }
 
 @font-face {
@@ -21,8 +25,8 @@ html, body {
 
 	font-family: Input;
 	
-	background-color: black;
-	/* color: var(--main-color); */
+	background-color: var(--bg-color);
+	color: var(--main-color);
 
 	/* cursor: url("../images/cursor.png"), auto; */
 }
@@ -33,6 +37,7 @@ html, body {
 
 .text {
 	color: var(--main-color);
+	font-size: 12pt;
 }
 
 header {
@@ -49,15 +54,16 @@ header {
 .title {
 	box-sizing: border-box;
 
-	/* background-color: var(--main-color); */
-	border: solid 5px var(--main-color);
-	color: var(--main-color);
+	background-color: var(--main-color);
+	/* border: solid 5px var(--main-color); */
+	color: var(--bg-color);
 
 	margin: 0 auto;
 	/* height: 90%; */
 	padding: 10px 0 10px 0;
 
 	font-weight: normal;
+	font-size: 2rem;
 }
 
 .console {
@@ -67,10 +73,11 @@ header {
 	margin: 0 auto;
 	box-sizing: border-box;
 
-	/* background-color: magenta; */
-	padding: 10px 0 10px 0;
+	background-color: var(--console-bg);
+	padding: 0 0 10px 0;
 
-	font-size: 10pt;
+	font-size: 12pt;
+	border: solid 2px var(--main-color);
 }
 
 .history-wrap {
@@ -84,9 +91,9 @@ header {
 	margin-bottom: 10px;
 
 	padding: 10px;
-	padding-top: 14px;
+	/* padding-top: 10px; */
 
-	border-top: solid 10px black;
+	/* border-top: solid 10px var(--console-bg); */
 	/* border: solid 1px #1d1d1d; */
 	/* background-color: #131313; */
 	/* overflow: hidden; */
@@ -97,6 +104,11 @@ header {
 	height: 100%;
 
 	overflow: hidden;
+
+	/* background-image: url("../images/thestar_animated.gif"); */
+	/* background-size: cover; */
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .prompt-wrap {
@@ -111,7 +123,7 @@ header {
 }
 
 .prompt-wrap textarea {
-	width: 100%;
+	width: 97%;
 	height: 100%;
 	margin: 0 auto;
 
@@ -122,12 +134,13 @@ header {
 	text-align: left;
 	line-height: 2.2em;
 
-	color: var(--main-color);
-	background-color: #1d1d1d;
+	color: var(--bg-color);
+	background-color: var(--main-color);
 	font-family: Input;
 	font-size: 10pt;
 
 	border: none;
+	/* font-weight: bold; */
 }
 
 /* tests */
@@ -142,11 +155,29 @@ header {
 
 .prompt-start {
 	font-weight: bold;
-	font-size: 10pt;
 }
 
 u {
 	font-style: italic;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.query {
+	color: var(--query-color);
+	margin: 2px 0 2px 0;
+}
+.query::before {
+	content: ">> ";
+	display: inline;
+	font-weight: bold;
+}
+
+.response {
+	color: var(--response-color);
+}
+.response:before {
+	content: ">> ";
+	display: inline;
+	font-weight: bolder;
 }
