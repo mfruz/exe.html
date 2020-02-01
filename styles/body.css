@@ -1,8 +1,9 @@
 :root {
 	--main-color: turquoise;
+	--second-color: magenta;
 	--bg-color: black;
 	--query-color: #blue;
-	--response-color: magenta;
+	--response-color: orange;
 	--console-bg: #171717;
 }
 
@@ -28,7 +29,7 @@ html, body {
 	background-color: var(--bg-color);
 	color: var(--main-color);
 
-	/* cursor: url("../images/cursor.png"), auto; */
+	/* cursor: url("../images/danoise.png"), auto; */
 }
 
 * {
@@ -37,7 +38,7 @@ html, body {
 
 .text {
 	color: var(--main-color);
-	font-size: 12pt;
+	font-size: 1em;
 }
 
 header {
@@ -122,8 +123,8 @@ header {
 	/* border: solid 1px var(--main-color); */
 }
 
-.prompt-wrap textarea {
-	width: 97%;
+.prompt-wrap input {
+	width: calc(100% - 14px);
 	height: 100%;
 	margin: 0 auto;
 
@@ -144,7 +145,7 @@ header {
 }
 
 /* tests */
-.prompt-wrap textarea {
+.prompt-wrap input {
 
 }
 
@@ -180,4 +181,34 @@ u {
 	content: ">> ";
 	display: inline;
 	font-weight: bolder;
+}
+
+.commands {
+	position: absolute;
+	left: 30px;
+	width: 15%;
+
+	color: var(--second-color);
+}
+.commands h2 {
+	text-align: center;
+	font-weight: normal;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+
+	color: var(--second-color);
+	border: solid 3px var(--second-color);
+}
+.commands ul {
+	padding: 10px;
+	list-style-type: none;
+}
+
+.commands ul li {
+	margin: 3px 0 3px 0;
+}
+.commands ul li::before {
+	content: "-- ";
+	font-weight: bold;
 }

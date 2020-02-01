@@ -3,7 +3,6 @@ function load() {
 
 	display();
 
-
 	let prompt = document.getElementById("prompt");
 
 	if(document.activeElement === prompt) {
@@ -17,7 +16,8 @@ function display() {
 
 function checkPrompt() {
 	document.getElementById("prompt").addEventListener('keydown', function(event) {
-		if(event.keyCode == 13) {
+		let key = event.which || event.keyCode;
+		if(key == 13) {
 			event.preventDefault();
 
 			const message = document.getElementById("prompt").value;
